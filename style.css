@@ -1,0 +1,54 @@
+/* Centre la carte et prend tout l'écran */
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-color: #f0f0f0;
+}
+
+/* Perspective pour l'effet 3D */
+.carte-container {
+  perspective: 1200px;
+}
+
+/* La carte elle-même */
+.carte {
+  width: 90vw;           /* 90% de la largeur de l'écran */
+  max-width: 600px;       /* Max 600px */
+  height: 60vh;          /* 60% de la hauteur de l'écran */
+  max-height: 400px;      /* Max 400px */
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.8s;
+  cursor: pointer;
+}
+
+/* Flip sur ordinateur et mobile */
+.carte-container:hover .carte,
+.carte-container:active .carte {
+  transform: rotateY(180deg);
+}
+
+/* Recto et verso */
+.recto, .verso {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+/* Retourner le verso */
+.verso {
+  transform: rotateY(180deg);
+}
+
+/* Les images remplissent la carte et restent centrées */
+.recto img, .verso img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* garde les proportions */
+  display: block;
+}
+
