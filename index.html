@@ -1,18 +1,24 @@
-<div class="carte-container">
-  <div class="carte">
-    <div class="recto">
-      <img src="https://via.placeholder.com/600x400?text=Recto" alt="Recto">
-    </div>
-    <div class="verso">
-      <img src="https://via.placeholder.com/600x400?text=Verso" alt="Verso">
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Carte 3D Flip</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="carte-container">
+    <div class="carte">
+      <div class="recto">
+        <img src="https://via.placeholder.com/600x400?text=Recto" alt="Recto">
+      </div>
+      <div class="verso">
+        <img src="https://via.placeholder.com/600x400?text=Verso" alt="Verso">
+      </div>
     </div>
   </div>
-</div>
 
-<script>
-  // Flip au clic / toucher (fonctionne sur mobile)
-  const carte = document.querySelector('.carte');
-  carte.addEventListener('click', () => {
-    carte.classList.toggle('flipped');
-  });
-</script>
+  <script src="script.js"></script>
+</body>
+</html>
