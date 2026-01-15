@@ -1,9 +1,10 @@
-/* Centre la carte et prend 60% de l'écran*/
+/* Centre la carte */
 body {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
+  min-height: -webkit-fill-available;
   margin: 0;
   background-color: lightblue;
 }
@@ -13,55 +14,44 @@ body {
   perspective: 1200px;
 }
 
-/* La carte elle-même */
+/* La carte */
 .carte {
-  width: 90vw;           /* 90% de la largeur de l'écran */
-  max-width: 600px;       /* Max 600px */
-  height: 60vh;          /* 60% de la hauteur de l'écran */
-  max-height: 400px;      /* Max 400px */
+  width: 90vw;
+  max-width: 600px;
+  height: 60vh;
+  max-height: 400px;
   position: relative;
-  transform-style: preserve-3d;
-  transition: transform 0.8s;
   cursor: pointer;
-}
-.carte {
-  -webkit-transform-style: preserve-3d;
+
   transform-style: preserve-3d;
-/* bon format sur mac OS */
-.carte {
   -webkit-transform-style: preserve-3d;
-  transform-style: preserve-3d;
+
+  transition: transform 0.8s;
 }
 
-.recto, .verso {
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-} 
-body {
-  min-height: -webkit-fill-available;
-}
 /* Recto et verso */
-.recto, .verso {
+.recto,
+.verso {
   position: absolute;
   width: 100%;
   height: 100%;
+
   backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
-/* Retourner le verso */
+/* Verso retourné */
 .verso {
   transform: rotateY(180deg);
 }
-
-/* Les images remplissent la carte et restent centrées */
-.recto img, .verso img {
+.carte:hover {
+  transform: rotateY(180deg);
+}
+/* Images */
+.recto img,
+.verso img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* garde les proportions */
+  object-fit: cover;
   display: block;
-}
-
-img {
-  max-width: 100%;
-  height: auto;
 }
