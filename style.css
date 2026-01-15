@@ -12,17 +12,20 @@ body {
 /* Perspective pour l'effet 3D */
 .carte-container {
   perspective: 1200px;
-  width: 100vw;
-  height: 100vh;
+  width: 95vw;
+  height: 95vh;
+  margin: auto;
 }
 
-/* La carte elle-même prend tout l'écran */
+/* La carte elle-même prend presque tout l'écran */
 .carte {
   width: 100%;
   height: 100%;
   position: relative;
+  -webkit-transform-style: preserve-3d;
   transform-style: preserve-3d;
-  transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1);
+  -webkit-transition: -webkit-transform 0.6s cubic-bezier(0.4,0.2,0.2,1);
+  transition: transform 0.6s cubic-bezier(0.4,0.2,0.2,1);
   cursor: pointer;
   box-shadow: 0 10px 30px rgba(0,0,0,0.2);
   border-radius: 12px;
@@ -31,11 +34,13 @@ body {
 
 /* Flip au hover pour desktop */
 .carte-container:hover .carte {
+  -webkit-transform: rotateY(180deg);
   transform: rotateY(180deg);
 }
 
-/* Flip au clic (pour mobile) */
+/* Flip au clic / tap pour mobile */
 .carte.flipped {
+  -webkit-transform: rotateY(180deg);
   transform: rotateY(180deg);
 }
 
@@ -44,11 +49,13 @@ body {
   position: absolute;
   width: 100%;
   height: 100%;
+  -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
 }
 
 /* Retourner le verso */
 .verso {
+  -webkit-transform: rotateY(180deg);
   transform: rotateY(180deg);
 }
 
