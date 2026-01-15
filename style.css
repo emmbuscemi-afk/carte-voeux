@@ -1,9 +1,9 @@
-/* Centre la carte et prend tout l'écran */
+/* Centre la carte et prend 60% de l'écran*/
 body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 60vh;
   margin: 0;
   background-color: lightblue;
 }
