@@ -24,13 +24,22 @@ body {
   transition: transform 0.8s;
   cursor: pointer;
 }
-
-/* Flip sur ordinateur et mobile */
-.carte-container:hover .carte,
-.carte-container:active .carte {
-  transform: rotateY(180deg);
+.carte {
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+/* bon format sur mac OS */
+.carte {
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
 }
 
+.recto, .verso {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+} 
+body {
+  min-height: -webkit-fill-available;
+}
 /* Recto et verso */
 .recto, .verso {
   position: absolute;
